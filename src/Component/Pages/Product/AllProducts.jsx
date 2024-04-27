@@ -16,16 +16,18 @@ function AllProducts() {
 
     return (
         <div>
-            <h1>All Products</h1>
-            {
-                products ? (
-                    products.map((data, index) => {
-                        return <ProductCard  {...data} key={index} />
-                    })
-                ) : (
-                    <h1>Loading...</h1>
-                )
-            }
+            <h1 id='AllProducts'>All Products</h1>
+            <div className='CardBody'>
+                {
+                    products ? (
+                        products.map((data, index) => {
+                            return <ProductCard  {...data} key={index} />
+                        })
+                    ) : (
+                        <h1>Loading...</h1>
+                    )
+                }
+            </div>
 
         </div>
     )
