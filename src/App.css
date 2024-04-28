@@ -31,3 +31,25 @@
   object-fit: cover;
   aspect-ratio: 3/2;
 }
+
+table,
+th,
+td {
+  border: 1px solid;
+  text-align: center;
+}
+
+#selectImg {
+  display: none;
+}
+
+#selectImgIcon {
+  margin-top: 20px;
+  margin-bottom: 15px;
+  font-size: 22px;
+  padding: 32px;
+  border: 1px dashed black;
+  border-radius: 7px;
+  cursor: pointer;
+  width: 100px;
+}

@@ -5,60 +5,63 @@ import { db } from '../../Configuration/Firbase.config'
 
 export default function ProductModal() {
 
-    const [name, setname] = useState("")
-    const [price, setprice] = useState("")
-    const [Quntity, setQuantity] = useState("")
-    const [description, setdescription] = useState("")
+  const [name, setname] = useState("")
+  const [price, setprice] = useState("")
+  const [Quntity, setQuantity] = useState("")
+  const [description, setdescription] = useState("")
 
-    const AddBtn = async () => {
-        try {
-            if (!name || !price || !Quntity || !description) {
-                alert("Please fill all field");
-            } else {
+  const AddBtn = async () => {
+    try {
+      if (!name || !price || !Quntity || !description) {
+        alert("Please fill all field");
+      } else {
 
-                const docRef = await addDoc(collection(db, ProductEntity), {
-                    name: name,
-                    price: price,
-                    qty: Quntity,
-                    des: description
-                });
-                console.log("Document written with ID: ", docRef.id);
-            }
-        } catch (e) {
-            console.error("Error adding document: ", e);
-        }
-
-
+        const docRef = await addDoc(collection(db, ProductEntity), {
+          name: name,
+          price: price,
+          qty: Quntity,
+          des: description
+        });
+        console.log("Document written with ID: ", docRef.id);
+      }
+    } catch (e) {
+      console.error("Error adding document: ", e);
     }
-    return (
-        <div>
+  }
+  return (
+    <div>
 
-            {/* <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div> */}
-            <div style={{ width: '40%', margin: 'auto', border: "2px solid black", borderRadius: "10px", padding: '20px 20px' }}>
-
-                <input type="text" className='form-control' onChange={(e) => setname(e.target.value)} placeholder='name' /><br />
-                <input type="number" className='form-control' onChange={(e) => setprice(e.target.value)} placeholder='price' /><br />
-                <input type="text" className='form-control' onChange={(e) => setQuantity(e.target.value)} placeholder='description' /><br />
-                <input type="number" className='form-control' onChange={(e) => setdescription(e.target.value)} placeholder='Quantity' /><br />
-                <button className='btn btn-primary' onClick={AddBtn}>Add product</button>
+      <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h1 className="modal-title fs-5" id="exampleModalLabel">ADD PRODUCT</h1>
+              <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
+            <div className="modal-body">
 
+              <div >
+                <input type="text" className='form-control' onChange={(e) => setname(e.target.value)} placeholder='Name' /><br />
+                <input type="number" className='form-control' onChange={(e) => setprice(e.target.value)} placeholder='Price' /><br />
+                <input type="number" className='form-control' onChange={(e) => setQuantity(e.target.value)} placeholder='Quantity' /><br />
+                <textarea id="" cols="30" rows="5" type="text" className='form-control' onChange={(e) => setdescription(e.target.value)} placeholder='Description' ></textarea>
+                <label htmlFor="selectImg">
+                  <abbr title="Upload Product Picture">
+                    <input type="file" name="" id="selectImg" />
+                    <img src="https://www.pngall.com/wp-content/uploads/10/Plus-Symbol-Silhouette-PNG-HD-Image.png" typeof='selectImg' id='selectImgIcon' alt="#" />
+                  </abbr>
+                </label>
+              </div>
+
+            </div>
+            <div className="modal-footer">
+              <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" className="btn btn-primary" onClick={AddBtn} data-bs-dismiss="modal">Add product</button>
+            </div>
+          </div>
         </div>
-    )
+      </div>
+
+    </div>
+  )
 }
