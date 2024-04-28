@@ -52,4 +52,28 @@ td {
   border-radius: 7px;
   cursor: pointer;
   width: 100px;
+  background-color: rgba(0, 0, 0, 0.082);
+}
+
+.ProductImgDiv {
+  margin-left: 20px;
+  border: 1px solid black;
+  border-radius: 7px;
+  width: 200px;
+  height: 100px;
+  margin-top: 20px;
+}
+
+#Productimages {
+  width: 200px;
+  height: 98px;
+  object-fit: contain;
+  border-radius: 7px;
+}
+
+#noImage {
+  display: flex;
+  justify-content: center;
+  margin-top: 35px;
+  font-size: small;
 }

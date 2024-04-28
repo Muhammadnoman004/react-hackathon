@@ -1,5 +1,7 @@
 import { db } from "../Configuration/Firbase.config";
-import { collection, onSnapshot, doc, getDoc, deleteDoc, addDoc } from "firebase/firestore";
+import { collection, onSnapshot, doc, getDoc, deleteDoc, } from "firebase/firestore";
+import { storage } from "../Configuration/Firbase.config";
+import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { ProductEntity } from "../lib/Firebase.entities";
 
 export const getAllProducts = (callback) => {
@@ -41,16 +43,43 @@ export const DeleteProduct = async (pid) => {
 
 }
 
-// export const AddProduct = async () => {
-//     try {
-//         const docRef = await addDoc(collection(db, "users"), {
-//             first: "Ada",
-//             last: "Lovelace",
-//             born: 1815
-//         });
-//         console.log("Document written with ID: ", docRef.id);
-//     } catch (e) {
-//         console.error("Error adding document: ", e);
-//     }
 
-// }
+export const ImageURL = (file) => {
+    console.log(file);
+    return new Promise((resolve, reject) => {
+        const restaurantImageRef = ref(storage, `images/${file.name}`
+        );
+        const uploadTask = uploadBytesResumable(restaurantImageRef, file);
+
+        uploadTask.on(
+            "state_changed",
+            (snapshot) => {
+                const progress =
+                    (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                console.log('Upload is ' + progress + '% done');
+
+                switch (snapshot.state) {
+                    case "paused":
+                        console.log('Upload is paused');
+                        break;
+                    case "running":
+                        console.log("running");
+                        break;
+                }
+            },
+            (error) => {
+                reject(error);
+            },
+            () => {
+                getDownloadURL(uploadTask.snapshot.ref)
+                    .then((downloadURL) => {
+                        console.log(downloadURL);
+                        resolve(downloadURL);
+                    })
+                    .catch((error) => {
+                        reject(error);
+                    });
+            }
+        );
+    });
+}
