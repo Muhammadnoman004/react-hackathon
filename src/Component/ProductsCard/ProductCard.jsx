@@ -8,10 +8,9 @@ export default function ProductCard(props) {
             <div className="card">
                 <img id='images' src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdX029ohIUSygq9zirl9fSNBwSLqEOaKEYuw&s' className='card-img-top' alt="" />
                 <div className="card-body">
-                    <h5 className="card-title">{name}</h5>
-                    <h2>{price}</h2>
-                    <p className="card-text">{des}</p>
-                    <Link to={`/product-detail/${id}`}><p>View Details..</p></Link>
+                    <h4 className="card-title" style={{ fontWeight: 'bold' }}>{name}</h4>
+                    <h5>${price}</h5>
+                    <Link to={`/product-detail/${id}`} style={{ display: "flex", justifyContent: "end", textDecoration: "none" }}><p>View Details..</p></Link>
                 </div>
             </div>
         </div>

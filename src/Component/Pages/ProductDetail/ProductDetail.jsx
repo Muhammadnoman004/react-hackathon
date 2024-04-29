@@ -16,19 +16,18 @@ export default function ProductDetail() {
     console.log(ProductDetail);
     return (
         <div>
-            <h1>Product Details</h1>
+            <h1 id='ProductDetailhead'>Product Details</h1>
             {
                 ProductDetail ? (
-                    <div className="card" style={{ width: '500px' }}>
-                        <img src={ProductDetail.ImageURl} className='card-img-top' alt="" />
-                        <div className="card-body">
-                            <h5 className="card-title">{ProductDetail.name}</h5>
-                            <h2>{ProductDetail.price}</h2>
-                            <p className="card-text">{ProductDetail.des}</p>
-                            <button className='btn btn-success'>Buy Now</button>
+                    <div className="cardDetail" style={{ width: '500px' }}>
+                        <img id='imageDetails' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdX029ohIUSygq9zirl9fSNBwSLqEOaKEYuw&s" className='card-img-top' alt="" />
+                        <div className="card-body m-2">
+                            <h4 id='nameDetails' className="card-title mx-2">{ProductDetail.name} - <span>${ProductDetail.price}</span></h4>
+                            <p className="card-text mx-2 desDetail">{ProductDetail.des}</p>
+                            <button className='btn btn-success' id='BuyNowBtn'>Buy Now</button>
                         </div>
                     </div>
-                ):(
+                ) : (
                     <h1>Loading...</h1>
                 )
             }
