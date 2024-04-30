@@ -73,7 +73,6 @@ export const ImageURL = (file) => {
             () => {
                 getDownloadURL(uploadTask.snapshot.ref)
                     .then((downloadURL) => {
-                        console.log(downloadURL);
                         resolve(downloadURL);
                     })
                     .catch((error) => {
