@@ -37,9 +37,7 @@ export default function AddProduct() {
                     </tr>
                 </thead>
             </table>
-            {/* <table className="table ">
-                <tbody>
-                    <tr> */}
+
             {
                 Allproducts ?
                     (
@@ -53,9 +51,7 @@ export default function AddProduct() {
                         <h1>Loading...</h1>
                     )
             }
-            {/* </tr>
-                </tbody>
-            </table> */}
+
             <br />
 
         </div>

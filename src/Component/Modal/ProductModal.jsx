@@ -10,35 +10,28 @@ export default function ProductModal() {
   const [price, setprice] = useState("")
   const [Quntity, setQuantity] = useState("")
   const [description, setdescription] = useState("")
-  const [ProductImgFile, setProductImgFile] = useState({})
   const [ProductImages, setProductImages] = useState("")
+  const [ProductImgURL, setProductImgURL] = useState("")
 
-
-  // const ProductImg = async (e) => {
-  //   const URl = await ImageURL(ProductImgFile)
-  //   setProductImages(URL.createObjectURL(ProductImgFile))
-  //   console.log(URl);
-  // }
-  // ProductImg()
+  const ProductImg = async (e) => {
+    console.log(e);
+    setProductImages(URL.createObjectURL(e))
+    const URl = await ImageURL(e)
+    setProductImgURL(URl)
+    console.log(URl);
+  }
 
   const AddBtn = async () => {
     try {
-      if (!name || !price || !Quntity || !description) {
+      if (!name || !price || !Quntity || !description || !ProductImgURL) {
         alert("Please fill all field");
       } else {
-
-        // const ProductImg = async (e) => {
-        const URl = await ImageURL(ProductImgFile)
-        data.ImageURl = URl
-        // setProductImages(URL.createObjectURL(ProductImgFile))
-        console.log(URl);
-        // }
-
         const docRef = await addDoc(collection(db, ProductEntity), {
           name: name,
           price: price,
           qty: Quntity,
-          des: description
+          des: description,
+          ImageURl: ProductImgURL
         });
         console.log("Document written with ID: ", docRef.id);
       }
@@ -65,7 +58,7 @@ export default function ProductModal() {
                 <textarea id="" cols="30" rows="5" type="text" className='form-control' onChange={(e) => setdescription(e.target.value)} placeholder='Description' ></textarea>
                 <label htmlFor="selectImg" style={{ display: 'flex' }}>
                   <abbr title="Upload Product Picture">
-                    <input type="file" name="" id="selectImg" onChange={(e) => setProductImgFile(e.target.files[0])} />
+                    <input type="file" name="" id="selectImg" onChange={(e) => ProductImg(e.target.files[0])} />
                     <img src="https://www.pngall.com/wp-content/uploads/10/Plus-Symbol-Silhouette-PNG-HD-Image.png" typeof='selectImg' id='selectImgIcon' alt="#" />
                   </abbr>
                   <div className='ProductImgDiv'>
