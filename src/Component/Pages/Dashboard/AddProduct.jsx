@@ -19,14 +19,14 @@ export default function AddProduct() {
     return (
         <div>
             {ShowModal && <ProductModal />}
-            <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '20px' }}>
+            <div id='AdminDahboardHead'>
                 <h1>Admin Dashboard</h1>
                 <div>
                     <button className='btn btn-warning' style={{ marginRight: '20px' }} data-bs-toggle="modal" data-bs-target="#exampleModal" >Add Product</button>
-                    <button className='btn btn-danger' style={{ marginRight: '20px' }}>Logout</button>
+                    <button className='btn btn-danger' style={{ marginRight: '20px', cursor: "not-allowed" }}>Logout</button>
                 </div>
             </div><br />
-            <table className="table">
+            <table className="table mt-3">
                 <thead>
                     <tr>
                         <th scope='col'>id</th>

@@ -137,3 +137,14 @@ td {
   margin-bottom: 10px;
   margin-top: 10px;
 }
+
+#AdminDahboardHead {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-weight: bold;
+  background-color: rgba(0, 0, 0, 0.801);
+  color: white;
+  padding: 20px 30px;
+}
