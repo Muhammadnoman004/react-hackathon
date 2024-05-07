@@ -7,7 +7,6 @@ function AllProducts() {
 
     useEffect(() => {
         const unsubscribe = getAllProducts((productsList) => {
-            console.log("productsList ==>", productsList);
             setProducts(productsList);
         });
 

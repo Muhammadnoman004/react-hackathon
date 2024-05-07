@@ -10,7 +10,7 @@ export default function ProductTable(props) {
             <table className="table table-striped">
                 <tbody>
                     <tr>
-                        <th scope='row'>{index + 1}</th>
+                        <th scope='row' style={{ width: "4%" }}>{index + 1}</th>
                         <td>{name}</td>
                         <td>{price}</td>
                         <td>{qty}</td>

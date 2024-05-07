@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import ProductTable from '../Product/ProductTable'
 import { getAllProducts } from '../../../Services/Product.service'
 import ProductModal from '../../Modal/ProductModal'
+import { Link } from 'react-router-dom'
 
 export default function AddProduct() {
 
@@ -9,7 +10,6 @@ export default function AddProduct() {
     const [ShowModal, setShowModal] = useState(true)
     useEffect(() => {
         const unsubscribe = getAllProducts((productsList) => {
-            console.log("productsList ==>", productsList);
             setAllProducts(productsList);
         });
 
@@ -20,16 +20,16 @@ export default function AddProduct() {
         <div>
             {ShowModal && <ProductModal />}
             <div id='AdminDahboardHead'>
-                <h1>Admin Dashboard</h1>
-                <div>
-                    <button className='btn btn-warning' style={{ marginRight: '20px' }} data-bs-toggle="modal" data-bs-target="#exampleModal" >Add Product</button>
-                    <button className='btn btn-danger' style={{ marginRight: '20px', cursor: "not-allowed" }}>Logout</button>
+                <h1 id='Admin'>Admin Dashboard</h1>
+                <div className='btnDiv'>
+                    <button className='btn btn-warning AddproductBtn' style={{ marginRight: '20px' }} data-bs-toggle="modal" data-bs-target="#exampleModal" >Add Product</button>
+                    <Link to={"/"}><button className='btn btn-success HomeBtn' style={{ marginRight: '20px' }}>Home</button></Link>
                 </div>
             </div><br />
             <table className="table mt-3">
                 <thead>
                     <tr>
-                        <th scope='col'>id</th>
+                        <th scope='col' style={{ width: "4%" }}>id</th>
                         <th scope='col'>Name</th>
                         <th scope='col'>Price</th>
                         <th scope='col'>Qty</th>

@@ -14,11 +14,9 @@ export default function ProductModal() {
   const [ProductImgURL, setProductImgURL] = useState("")
 
   const ProductImg = async (e) => {
-    console.log(e);
     setProductImages(URL.createObjectURL(e))
     const URl = await ImageURL(e)
     setProductImgURL(URl)
-    console.log(URl);
   }
 
   const AddBtn = async () => {

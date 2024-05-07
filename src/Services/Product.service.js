@@ -45,7 +45,6 @@ export const DeleteProduct = async (pid) => {
 
 
 export const ImageURL = (file) => {
-    console.log(file);
     return new Promise((resolve, reject) => {
         const restaurantImageRef = ref(storage, `images/${file.name}`
         );

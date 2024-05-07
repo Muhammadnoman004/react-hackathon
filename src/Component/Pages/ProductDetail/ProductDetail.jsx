@@ -13,7 +13,6 @@ export default function ProductDetail() {
         })()
     }, [])
 
-    console.log(ProductDetail);
     return (
         <div>
             <h1 id='ProductDetailhead'>Product Details</h1>

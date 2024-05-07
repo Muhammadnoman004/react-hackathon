@@ -45,6 +45,8 @@ th,
 td {
   border: 1px solid;
   text-align: center;
+  width: 10%;
+  word-break: break-all;
 }
 
 #selectImg {
@@ -147,4 +149,38 @@ td {
   background-color: rgba(0, 0, 0, 0.801);
   color: white;
   padding: 20px 30px;
+}
+
+/* Media Query Apply */
+
+@media screen and (max-width: 530px) {
+  #Admin {
+    font-size: 22px;
+  }
+
+  .HomeBtn {
+    margin-right: -10px !important;
+  }
+
+  .AddproductBtn {
+    margin-right: 12px !important;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  #AdminDahboardHead {
+    display: flex !important;
+    flex-direction: column;
+  }
+
+  .btnDiv {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  #Admin {
+    font-size: xx-large;
+    padding-bottom: 10px;
+  }
+
 }
