@@ -3,6 +3,7 @@ import ProductTable from '../Product/ProductTable'
 import { getAllProducts } from '../../../Services/Product.service'
 import ProductModal from '../../Modal/ProductModal'
 import { Link } from 'react-router-dom'
+import Loader from '../../Loader/Loader'
 
 export default function AddProduct() {
 
@@ -48,7 +49,9 @@ export default function AddProduct() {
                             )
                         })
                     ) : (
-                        <h1>Loading...</h1>
+                        <div className='text-center'>
+                            <Loader show={true} />
+                        </div>
                     )
             }
 

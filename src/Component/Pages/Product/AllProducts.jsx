@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import ProductCard from '../../ProductsCard/ProductCard';
 import { getAllProducts } from '../../../Services/Product.service'
+import Loader from '../../Loader/Loader';
+import { Link } from 'react-router-dom';
 
 function AllProducts() {
     const [products, setProducts] = useState(null)
@@ -15,7 +17,10 @@ function AllProducts() {
 
     return (
         <div>
-            <h1 id='AllProducts'>All Products</h1>
+            <div id='AllProducts'>
+                <h1 style={{ fontWeight: "bold" }}>All Products</h1>
+                <Link to={'/dashboard'} className='text-light' style={{ textDecoration: "none", fontFamily: "monospace" }}>Go to Dashboard</Link>
+            </div>
             <div className='CardBody'>
                 {
                     products ? (
@@ -23,7 +28,7 @@ function AllProducts() {
                             return <ProductCard  {...data} key={index} />
                         })
                     ) : (
-                        <h1>Loading...</h1>
+                        <Loader show={true} />
                     )
                 }
             </div>

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { getProductbyid } from '../../../Services/Product.service'
 import { useParams } from 'react-router-dom'
+import Loader from '../../Loader/Loader'
 
 export default function ProductDetail() {
     const { id } = useParams()
@@ -27,7 +28,9 @@ export default function ProductDetail() {
                         </div>
                     </div>
                 ) : (
-                    <h1>Loading...</h1>
+                    <div className='text-center'>
+                        <Loader show={true} />
+                    </div>
                 )
             }
 
